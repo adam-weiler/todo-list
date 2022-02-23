@@ -1,6 +1,6 @@
 import React from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
-import { ToDolist } from './TodoList';
+import { Route, Routes, Link } from 'react-router-dom';
+import { TodoList } from './TodoList';
 import { CreateTodo } from './CreateTodo';
 import { EditTodo } from './EditTodo';
 
@@ -17,11 +17,11 @@ function App() {
             </li>
           </ul>
         </nav>
-        <Switch>
-          <Route exact path="/" component={TodoList} />
-          <Route exact path="/edit/:id" component={EditTodo} />
-          <Route exact path="/create" component={CreateTodo} />
-        </Switch>
+        <Routes>
+          <Route path="/welcome" component={TodoList} />
+          <Route path="/edit/:id" component={EditTodo} />
+          <Route path="/create" component={CreateTodo} />
+        </Routes>
       </div>
   );
 }
