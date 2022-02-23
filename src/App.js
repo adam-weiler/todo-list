@@ -1,11 +1,18 @@
 import React from 'react';
-import { Route, Routes, Link } from 'react-router-dom';
+// import { Route, Switch, Link } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import { TodoList } from './TodoList';
 import { CreateTodo } from './CreateTodo';
 import { EditTodo } from './EditTodo';
 
 function App() {
   return (
+    <Router>
       <div>
         <nav className="navbar bg-light navbar-expand-lg navbar-light">
           <ul className="navbar-nav mr-auto">
@@ -17,12 +24,13 @@ function App() {
             </li>
           </ul>
         </nav>
-        <Routes>
-          <Route path="/welcome" component={TodoList} />
+        <Switch>
+          <Route exact path="/" component={TodoList} />
           <Route path="/edit/:id" component={EditTodo} />
           <Route path="/create" component={CreateTodo} />
-        </Routes>
+        </Switch>
       </div>
+      </Router>
   );
 }
 
