@@ -8,7 +8,7 @@ export const TodoList = () => {
         setItems([
             {text: "foo", id: 0},
             {text: "bar", id: 1},
-            {text: "bazz", id: 2},
+            {text: "bazz", id: 2}
         ])
     }, []);
 
@@ -23,18 +23,12 @@ export const TodoList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* {
-                        items.map(todo => {
-                            <tr key= {todo.id}>
-                                <td>
-                                    {todo.text}
-                                </td>
-                                <td>
-                                    <Link to={'/edit/${}'}>Edit</Link>
-                                </td>
-                            </tr>
-                        })
-                    } */}
+                        <tr key="1">
+                        <tr>
+                            <td>Foo</td>
+                            <td><Link to={'/edit/1'}>Edit</Link></td>
+                        </tr>
+                     </tr>
                 </tbody>
             </table>
         </div>

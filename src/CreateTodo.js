@@ -4,14 +4,12 @@ import { useHistory } from 'react-router-dom';
 
 export const CreateTodo = () => {
     const { register, handleSubmit } = useForm();
-                    // const { handleSubmit } = useForm();
-    const history = useHistory();
+    const history = useHistory();   //Needs this for redirect.
                     // const register = useRef(null);
 
-    const onSubmit = handleSubmit((data) => {
-        
-        alert(JSON.stringify(data));
-    //     history.push("/")
+    const onSubmit = handleSubmit((data) => {   //When the user hits the 'Create Todo' button.
+        alert(JSON.stringify(data));    //Alert pops up with user input.
+        history.push("/");  //Redirects user to 'TodoList.js' root page.
     return true;
     });
 
@@ -24,7 +22,6 @@ export const CreateTodo = () => {
                         <label htmlFor="text">
                             Text:
                         </label>
-                        {/* <input className="form-control" ref={register} type="text" name="text" id="text" /> */}
                         <input className="form-control" ref={register} type="text" name="text" id="text" />
                     </div>
                     <div className="form-group">
