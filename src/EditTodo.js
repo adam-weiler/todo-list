@@ -8,7 +8,21 @@ export const EditTodo = () => {
         setTodo({
             text: "foo"
         })
-    }, [])
+    }, []);
 
-    return todo ? <TodoForm todo={todo} /> : <div>Loading</div> //Checks 'todo'; if yes then renders 'TodoForm' component. Otherwise provides a message.
-}
+    const onSubmit = (data) => {
+        alert(JSON.stringify(data));
+    }
+
+    return todo ? //Checks 'todo'; if yes then renders 'TodoForm' component. Otherwise provides a message.
+    (
+        <div className="container">
+            <div className="mt-3">
+                <h3>Edit Todo Item</h3>
+                <TodoForm todo={todo} onSubmit={onSubmit} />
+            </div>
+        </div>
+    ) : (
+        <div>Loading</div> 
+    );
+};
