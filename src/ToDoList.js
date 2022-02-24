@@ -30,6 +30,14 @@ export const TodoList = () => {
                         </tr>
                      </tr>
                 </tbody>
+                <tbody>
+                        <tr key="2">
+                        <tr>
+                            <td>Bar</td>
+                            <td><Link to={'/edit/2'}>Edit</Link></td>
+                        </tr>
+                     </tr>
+                </tbody>
             </table>
         </div>
     </div>

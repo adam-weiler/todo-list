@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
+import { TodoForm } from './TodoForm';
 
 export const EditTodo = () => {
     const [todo, setTodo] = useState();
-    const { register, handleSubmit } = useForm({ 
-        defaultValues: { text: todo ? todo.text : "" },
-    });
-    const history = useHistory();   //Needs this for redirect.
 
     useEffect(() => {
         setTodo({
@@ -15,30 +10,5 @@ export const EditTodo = () => {
         })
     }, [])
 
-    const onSubmit = handleSubmit((data) => {   //When the user hits the 'Create Todo' button.
-        alert(JSON.stringify(data));    //Alert pops up with user input.
-        history.push("/");  //Redirects user to 'TodoList.js' root page.
-    return true;
-    });
-
-    return (
-        <div className="container">
-            <div className="mt-3">
-                <h3>Edit Todo Item</h3>
-                <form onSubmit={onSubmit}>
-                    <div className="form-group">
-                        <label htmlFor="text">
-                            Text:
-                        </label>
-                        <input className="form-control" ref={register} type="text" name="text" id="text" />
-                    </div>
-                    <div className="form-group">
-                        <button className="btn btn-primary">
-                            Create Todo
-                            </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    )
+    return todo ? <TodoForm todo={todo} /> : <div>Loading</div> //Checks 'todo'; if yes then renders 'TodoForm' component. Otherwise provides a message.
 }
