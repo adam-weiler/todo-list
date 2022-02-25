@@ -4,6 +4,7 @@ import { TodoForm } from "./TodoForm";
 export const CreateTodo = () => {
     const onSubmit = (data) => {   //When the user hits the 'Create Todo' button.
         alert(JSON.stringify(data));    //Alert pops up with user input.
+        CreateTodo(data);
     return true;
     };
 

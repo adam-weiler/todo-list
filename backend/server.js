@@ -46,3 +46,10 @@ app.get("/:id", (req, res) => {
 app.listen(PORT, () => {
     console.log("Server is running on port " + PORT);
 })
+
+
+//This doesn't work:
+//curl -H "Content-Type: application/json" --request POST -d '{"text":"test"}' http://localhost:4000/create
+
+//This works:
+//curl -i -X POST -H "Content-Type:application/json" -d "{\"text\": \"Frodo\"}" http://localhost:4000/create
