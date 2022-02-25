@@ -6,12 +6,9 @@ export const TodoForm = ({ todo, onSubmit }) => {
     const { register, handleSubmit } = useForm({ 
         defaultValues: { text: todo ? todo.text : "" },
     });
-    const history = useHistory();   //Needs this for redirect.
 
     const submitHandler = handleSubmit((data) => {   //When the user hits the 'Create Todo' button.
         onSubmit(data);
-        history.push("/");  //Redirects user to 'TodoList.js' root page.
-    return true;
     });
 
     return(

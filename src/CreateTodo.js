@@ -1,11 +1,15 @@
 import React, { useRef } from 'react';
 import { TodoForm } from "./TodoForm";
+import { createTodo } from "./api";
+import { useHistory } from "react-router-dom";
 
 export const CreateTodo = () => {
-    const onSubmit = (data) => {   //When the user hits the 'Create Todo' button.
-        alert(JSON.stringify(data));    //Alert pops up with user input.
-        CreateTodo(data);
-    return true;
+    const history = useHistory();
+
+    const onSubmit = async (data) => {   //When the user hits the 'Create Todo' button.
+        //alert(JSON.stringify(data));    //Alert pops up with user input.
+        await createTodo(data);
+        history.push("/");
     };
 
     return (
